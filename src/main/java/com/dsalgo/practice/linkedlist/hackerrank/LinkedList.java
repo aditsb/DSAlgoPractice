@@ -1,4 +1,4 @@
-package com.dsalgo.practice.linkedlist;
+package com.dsalgo.practice.linkedlist.hackerrank;
 
 public class LinkedList {
     Node header;
@@ -63,7 +63,7 @@ public class LinkedList {
         if (header == null) {
             return;
         } else {
-            //com.dsalgo.practice.linkedlist.Node tempNode=header;
+            //com.dsalgo.practice.linkedlist.hackerrank.Node tempNode=header;
             header = header.nextNode;
 
         }
@@ -155,9 +155,27 @@ public class LinkedList {
         linkedList.addtoTail((20));
         linkedList.addtoTail((30));
         linkedList.addtoTail((40));
+        linkedList.addToHead(5);
+        linkedList.addNodeAfter(11,7);
+        linkedList.addNodeAfter(5,7);
+
+        System.out.println("Printing original linkedList");
+        linkedList.printLinkedList();
+
+        linkedList.deleteHead();
+        System.out.println("Printing linkedList after deletion of head");
+        linkedList.printLinkedList();
+
+        System.out.println("Printing linkedList after deletion of tail");
+        linkedList.deleteTail();
+        linkedList.printLinkedList();
+
+        linkedList.deleteNodeAfter(10);
+        System.out.println("Printing linkedList after deletion of node after 10");
         linkedList.printLinkedList();
 
         linkedList.header=linkedList.reverse(linkedList.header);
+        System.out.println("Printing reverse linkedList");
         linkedList.printLinkedList();
 
 

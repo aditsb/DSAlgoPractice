@@ -1,12 +1,14 @@
-package com.dsalgo.practice.linkedlist;
+package com.dsalgo.practice.linkedlist.hackerrank;
 
 import java.io.*;
 import java.math.*;
+import java.security.*;
 import java.text.*;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.regex.*;
 
-public class CompareLinkedList {
+public class MergeSortedLinkedList {
 
     static class SinglyLinkedListNode {
         public int data;
@@ -40,19 +42,17 @@ public class CompareLinkedList {
         }
     }
 
-    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
+    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) throws IOException {
         while (node != null) {
-            bufferedWriter.write(String.valueOf(node.data));
+            System.out.println((String.valueOf(node.data)));
 
             node = node.next;
 
-            if (node != null) {
-                bufferedWriter.write(sep);
-            }
+
         }
     }
 
-    // Complete the compareLists function below.
+    // Complete the mergeLists function below.
 
     /*
      * For your reference:
@@ -63,27 +63,41 @@ public class CompareLinkedList {
      * }
      *
      */
-    static boolean compareLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
-        if (head1 == null || head2 == null) {
-            return false;
+    static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+        SinglyLinkedListNode head3 = new SinglyLinkedListNode(Integer.MIN_VALUE);
+        SinglyLinkedListNode originalNode=head3;
+        if (head1 == null) {
+            return head2;
+        } else if (head2 == null) {
+            return head1;
         } else if (head1 != null && head2 != null) {
             while (head1 != null && head2 != null) {
-                if (!(head1.data == head2.data)) {
-                    return false;
+                if (head1.data > head2.data) {
+                    head3.next = new SinglyLinkedListNode(head2.data);
+                    head2 = head2.next;
+                } else if (head1.data < head2.data) {
+                    head3.next = new SinglyLinkedListNode(head1.data);
+                    head1 = head1.next;
+                } else {
+                    head3.next = new SinglyLinkedListNode(head1.data);
+                    head3.next.next= new SinglyLinkedListNode(head1.data);
+                    head2 = head2.next;
+                    head1 = head1.next;
+                    head3=head3.next;
                 }
-                head1 = head1.next;
-                head2 = head2.next;
-                if ((head1 != null && head2 == null)||(head1 == null && head2 != null)) {
-                    return false;
-                }
+                head3 = head3.next;
+            }
+            if(head1!=null){
+                head3.next =head1;
 
+            }else if(head2!=null){
+                head3.next = head2;
 
             }
-            return true;
 
         }
-        return false;
 
+        return originalNode.next;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -118,8 +132,9 @@ public class CompareLinkedList {
                 llist2.insertNode(llist2Item);
             }
 
-            boolean result = compareLists(llist1.head, llist2.head);
-
+            SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+            System.out.println("Printing list");
+            printSinglyLinkedList(llist3, " ");
         }
 
 

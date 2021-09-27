@@ -1,4 +1,4 @@
-package com.dsalgo.practice.linkedlist;
+package com.dsalgo.practice.linkedlist.hackerrank;
 
 public class Node {
     int data;
