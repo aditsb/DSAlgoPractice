@@ -2,7 +2,6 @@ package com.dsalgo.practice.array;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class UniqueArrayElement {
     static int singleElement(int[] arr, int N) {
