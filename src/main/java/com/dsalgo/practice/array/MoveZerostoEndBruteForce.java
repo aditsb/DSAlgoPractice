@@ -3,7 +3,7 @@ package com.dsalgo.practice.array;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.IntConsumer;
-
+//https://takeuforward.org/data-structure/move-all-zeros-to-the-end-of-the-array/
 public class MoveZerostoEndBruteForce {
     public static int[] moveZeros(int n, int[] a) {
         // Write your code here.

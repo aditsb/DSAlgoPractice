@@ -2,6 +2,7 @@ package com.dsalgo.practice.array;
 
 import java.util.*;
 
+//https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
 public class TwoSumUsingHashSet {
     public static int[] twoNumberSum(int[] array, int targetSum) {
         // Write your code here.

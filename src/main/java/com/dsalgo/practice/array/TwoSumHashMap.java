@@ -2,6 +2,7 @@ package com.dsalgo.practice.array;
 
 import java.util.HashMap;
 
+//https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
 public class TwoSumHashMap {
     public static String twoSum(int n, int []arr, int target) {
         HashMap numbers=new HashMap<Integer,Integer>();
@@ -9,7 +10,7 @@ public class TwoSumHashMap {
             if(numbers.containsKey(target-arr[index])){
                 return "Yes:"+arr[index]+":"+numbers.get(target-arr[index]);
             }else{
-                numbers.put(arr[index],arr[index]);
+                numbers.put(arr[index],index);
             }
         }
         return "No";

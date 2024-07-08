@@ -1,5 +1,5 @@
 package com.dsalgo.practice.array;
-
+//https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
 public class TwoSumBruteForce {
     public static String twoSum(int n, int []arr, int target) {
     for(int outerIndex=0;outerIndex<arr.length;outerIndex++){

@@ -1,20 +1,20 @@
 package com.dsalgo.practice.array;
 
 import java.util.*;
-
+//https://takeuforward.org/data-structure/two-sum-check-if-a-pair-with-given-sum-exists-in-array/
 public class TwoSumUsingSort {
     public static int[] twoNumberSum(int[] array, int targetSum) {
        Arrays.sort(array); // Write your code here.
-        int rightIndex=0;
-        int endIndex=array.length-1;
+        int leftIndex=0;
+        int rightIndex=array.length-1;
         for(int count=0;count<array.length;count++){
-            if(array[rightIndex]+(array[endIndex])==targetSum){
-                return new int[]{array[rightIndex],array[endIndex]};
-            }else if(array[rightIndex]+array[endIndex]<targetSum){
-                rightIndex++;
+            if(array[leftIndex]+(array[rightIndex])==targetSum){
+                return new int[]{array[leftIndex],array[rightIndex]};
+            }else if(array[leftIndex]+array[rightIndex]<targetSum){
+                leftIndex++;
 
-            }else if(array[rightIndex]+array[endIndex]>targetSum){
-                endIndex--;
+            }else if(array[leftIndex]+array[rightIndex]>targetSum){
+                rightIndex--;
             }
             System.out.println(count);
         }
